@@ -1,0 +1,10 @@
+{
+  "folders": [
+    {
+      "path": "Hermes"
+    }
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "${workspaceFolder}/Hermes/.venv/Scripts/python.exe"
+  }
+}

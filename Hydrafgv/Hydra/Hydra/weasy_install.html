@@ -1,0 +1,917 @@
+﻿<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Common Use Cases" href="common_use_cases.html" /><link rel="prev" title="WeasyPrint" href="index.html" />
+
+    <link rel="shortcut icon" href="https://www.courtbouillon.org/static/images/favicon.png"/><!-- Generated with Sphinx 7.3.7 and Furo 2024.08.06 -->
+        <title>First Steps - WeasyPrint 66.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b20cc3f5" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="https://www.courtbouillon.org/static/docs-furo.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #272822;
+  --color-code-foreground: #f8f8f2;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">WeasyPrint 66.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">WeasyPrint 66.0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">First Steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common_use_cases.html">Common Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="going_further.html">Going Further</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Extra Information</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/Kozea/WeasyPrint/edit/main/docs/first_steps.rst" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="first-steps">
+<h1>First Steps<a class="headerlink" href="#first-steps" title="Link to this heading">┬Â</a></h1>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">┬Â</a></h2>
+<p>WeasyPrint ÔÇÿstableÔÇÖ depends on:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.python.org/">Python</a> ÔëÑ 3.9.0</p></li>
+<li><p><a class="reference external" href="https://pango.gnome.org/">Pango</a> ÔëÑ 1.44.0</p></li>
+<li><p><a class="reference external" href="https://doc.courtbouillon.org/pydyf/">pydyf</a> ÔëÑ 0.10.0</p></li>
+<li><p><a class="reference external" href="https://cffi.readthedocs.io/">CFFI</a> ÔëÑ 0.6</p></li>
+<li><p><a class="reference external" href="https://doc.courtbouillon.org/tinyhtml5/">tinyhtml5</a> ÔëÑ 2.0.0b1</p></li>
+<li><p><a class="reference external" href="https://doc.courtbouillon.org/tinycss2/">tinycss2</a> ÔëÑ 1.3.0</p></li>
+<li><p><a class="reference external" href="https://doc.courtbouillon.org/cssselect2/">cssselect2</a> ÔëÑ 0.8.0</p></li>
+<li><p><a class="reference external" href="https://pyphen.org/">Pyphen</a> ÔëÑ 0.9.1</p></li>
+<li><p><a class="reference external" href="https://python-pillow.org/">Pillow</a> ÔëÑ 9.1.0</p></li>
+<li><p><a class="reference external" href="https://github.com/fonttools/fonttools">fontTools</a> ÔëÑ 4.0.0</p></li>
+</ul>
+<p>There are many ways to install WeasyPrint, depending on the system you use.</p>
+<section id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Link to this heading">┬Â</a></h3>
+<p>The easiest way to install WeasyPrint on Linux is to use the package manager of
+your distribution. WeasyPrint is packaged for recent versions of <a class="reference external" href="https://packages.debian.org/search?keywords=weasyprint&amp;searchon=names&amp;suite=all&amp;section=all">Debian</a>,
+<a class="reference external" href="https://packages.ubuntu.com/search?keywords=weasyprint&amp;searchon=names&amp;suite=all&amp;section=all">Ubuntu</a>, <a class="reference external" href="https://src.fedoraproject.org/rpms/weasyprint">Fedora</a>, <a class="reference external" href="https://aur.archlinux.org/packages/python-weasyprint">Archlinux</a>, <a class="reference external" href="https://packages.gentoo.org/packages/dev-python/weasyprint">Gentoo</a>ÔÇª</p>
+<p>If WeasyPrint is not available on your distribution, or if you want to use a
+more recent version of WeasyPrint, you have to be sure that <a class="reference external" href="https://www.python.org/">Python</a> and <a class="reference external" href="https://pango.gnome.org/">Pango</a>
+are installed on your system, and that they are recent enough. You can verify
+this by launching:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">--</span><span class="n">version</span>
+<span class="n">pango</span><span class="o">-</span><span class="n">view</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+<p>If the version of Pango provided by your distribution is too old, you can use
+version 52.5 of WeasyPrint which does not need recent Pango features.</p>
+<p>When everything is OK, you can install WeasyPrint directly on your system or
+in a <a class="reference external" href="https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/">virtual environment</a> using <a class="reference external" href="https://pip.pypa.io/">pip</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">venv</span>
+<span class="n">source</span> <span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">weasyprint</span>
+<span class="n">weasyprint</span> <span class="o">--</span><span class="n">info</span>
+</pre></div>
+</div>
+<section id="alpine-3-17">
+<h4>Alpine ÔëÑ 3.17<a class="headerlink" href="#alpine-3-17" title="Link to this heading">┬Â</a></h4>
+<p>To install WeasyPrint using your distributionÔÇÖs package:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apk</span> <span class="n">add</span> <span class="n">weasyprint</span>
+</pre></div>
+</div>
+<p>To install WeasyPrint inside a virtualenv using wheels (if possible), you need
+the following packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apk</span> <span class="n">add</span> <span class="n">py3</span><span class="o">-</span><span class="n">pip</span> <span class="n">so</span><span class="p">:</span><span class="n">libgobject</span><span class="o">-</span><span class="mf">2.0</span><span class="o">.</span><span class="n">so</span><span class="mf">.0</span> <span class="n">so</span><span class="p">:</span><span class="n">libpango</span><span class="o">-</span><span class="mf">1.0</span><span class="o">.</span><span class="n">so</span><span class="mf">.0</span> <span class="n">so</span><span class="p">:</span><span class="n">libharfbuzz</span><span class="o">.</span><span class="n">so</span><span class="mf">.0</span> <span class="n">so</span><span class="p">:</span><span class="n">libharfbuzz</span><span class="o">-</span><span class="n">subset</span><span class="o">.</span><span class="n">so</span><span class="mf">.0</span> <span class="n">so</span><span class="p">:</span><span class="n">libfontconfig</span><span class="o">.</span><span class="n">so</span><span class="mf">.1</span> <span class="n">so</span><span class="p">:</span><span class="n">libpangoft2</span><span class="o">-</span><span class="mf">1.0</span><span class="o">.</span><span class="n">so</span><span class="mf">.0</span>
+</pre></div>
+</div>
+<p>To install WeasyPrint inside a virtualenv without using wheels, you need the
+following packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apk</span> <span class="n">add</span> <span class="n">py3</span><span class="o">-</span><span class="n">pip</span> <span class="n">so</span><span class="p">:</span><span class="n">libgobject</span><span class="o">-</span><span class="mf">2.0</span><span class="o">.</span><span class="n">so</span><span class="mf">.0</span> <span class="n">so</span><span class="p">:</span><span class="n">libpango</span><span class="o">-</span><span class="mf">1.0</span><span class="o">.</span><span class="n">so</span><span class="mf">.0</span> <span class="n">so</span><span class="p">:</span><span class="n">libharfbuzz</span><span class="o">.</span><span class="n">so</span><span class="mf">.0</span> <span class="n">so</span><span class="p">:</span><span class="n">libharfbuzz</span><span class="o">-</span><span class="n">subset</span><span class="o">.</span><span class="n">so</span><span class="mf">.0</span> <span class="n">so</span><span class="p">:</span><span class="n">libfontconfig</span><span class="o">.</span><span class="n">so</span><span class="mf">.1</span> <span class="n">so</span><span class="p">:</span><span class="n">libpangoft2</span><span class="o">-</span><span class="mf">1.0</span><span class="o">.</span><span class="n">so</span><span class="mf">.0</span>
+<span class="n">apk</span> <span class="n">add</span> <span class="n">gcc</span> <span class="n">musl</span><span class="o">-</span><span class="n">dev</span> <span class="n">python3</span><span class="o">-</span><span class="n">dev</span> <span class="n">zlib</span><span class="o">-</span><span class="n">dev</span> <span class="n">jpeg</span><span class="o">-</span><span class="n">dev</span> <span class="n">openjpeg</span><span class="o">-</span><span class="n">dev</span> <span class="n">libwebp</span><span class="o">-</span><span class="n">dev</span> <span class="n">g</span><span class="o">++</span> <span class="n">libffi</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h4>Archlinux<a class="headerlink" href="#id1" title="Link to this heading">┬Â</a></h4>
+<p>To install WeasyPrint using your distributionÔÇÖs package:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">python</span><span class="o">-</span><span class="n">weasyprint</span>
+</pre></div>
+</div>
+<p>To install WeasyPrint inside a virtualenv using wheels (if possible), you need
+the following packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span> <span class="n">pango</span>
+</pre></div>
+</div>
+<p>To install WeasyPrint inside a virtualenv without using wheels, you need the
+following packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span> <span class="n">pango</span> <span class="n">gcc</span> <span class="n">libjpeg</span><span class="o">-</span><span class="n">turbo</span> <span class="n">openjpeg2</span>
+</pre></div>
+</div>
+</section>
+<section id="debian-11">
+<h4>Debian ÔëÑ 11<a class="headerlink" href="#debian-11" title="Link to this heading">┬Â</a></h4>
+<p>To install WeasyPrint using your distributionÔÇÖs package:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">weasyprint</span>
+</pre></div>
+</div>
+<p>To install WeasyPrint inside a virtualenv using wheels (if possible), you need
+the following packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span> <span class="n">libpango</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mi">0</span> <span class="n">libpangoft2</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mi">0</span> <span class="n">libharfbuzz</span><span class="o">-</span><span class="n">subset0</span>
+</pre></div>
+</div>
+<p>To install WeasyPrint inside a virtualenv without using wheels, you need the
+following packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span> <span class="n">libpango</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mi">0</span> <span class="n">libpangoft2</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mi">0</span> <span class="n">libharfbuzz</span><span class="o">-</span><span class="n">subset0</span> <span class="n">libjpeg</span><span class="o">-</span><span class="n">dev</span> <span class="n">libopenjp2</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">dev</span> <span class="n">libffi</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+</section>
+<section id="fedora-39">
+<h4>Fedora ÔëÑ 39<a class="headerlink" href="#fedora-39" title="Link to this heading">┬Â</a></h4>
+<p>To install WeasyPrint using your distributionÔÇÖs package:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="n">install</span> <span class="n">weasyprint</span>
+</pre></div>
+</div>
+<p>To install WeasyPrint inside a virtualenv using wheels (if possible), you need
+the following packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">pip</span> <span class="n">pango</span>
+</pre></div>
+</div>
+<p>To install WeasyPrint inside a virtualenv without using wheels, you need the
+following packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnf</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span> <span class="n">pango</span> <span class="n">gcc</span> <span class="n">python3</span><span class="o">-</span><span class="n">devel</span> <span class="n">gcc</span><span class="o">-</span><span class="n">c</span><span class="o">++</span> <span class="n">zlib</span><span class="o">-</span><span class="n">devel</span> <span class="n">libjpeg</span><span class="o">-</span><span class="n">devel</span> <span class="n">openjpeg2</span><span class="o">-</span><span class="n">devel</span> <span class="n">libffi</span><span class="o">-</span><span class="n">devel</span>
+</pre></div>
+</div>
+</section>
+<section id="ubuntu-20-04">
+<h4>Ubuntu ÔëÑ 20.04<a class="headerlink" href="#ubuntu-20-04" title="Link to this heading">┬Â</a></h4>
+<p>To install WeasyPrint using your distributionÔÇÖs package:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">weasyprint</span>
+</pre></div>
+</div>
+<p>To install WeasyPrint inside a virtualenv using wheels (if possible), you need
+the following packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span> <span class="n">libpango</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mi">0</span> <span class="n">libharfbuzz0b</span> <span class="n">libpangoft2</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mi">0</span> <span class="n">libharfbuzz</span><span class="o">-</span><span class="n">subset0</span>
+</pre></div>
+</div>
+<p>To install WeasyPrint inside a virtualenv without using wheels, you need the
+following packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span> <span class="n">libpango</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mi">0</span> <span class="n">libharfbuzz0b</span> <span class="n">libpangoft2</span><span class="o">-</span><span class="mf">1.0</span><span class="o">-</span><span class="mi">0</span> <span class="n">libharfbuzz</span><span class="o">-</span><span class="n">subset0</span> <span class="n">libffi</span><span class="o">-</span><span class="n">dev</span> <span class="n">libjpeg</span><span class="o">-</span><span class="n">dev</span> <span class="n">libopenjp2</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">dev</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="macos">
+<h3>macOS<a class="headerlink" href="#macos" title="Link to this heading">┬Â</a></h3>
+<p>The easiest way to install WeasyPrint on macOS is to use <a class="reference external" href="https://brew.sh/">Homebrew</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">install</span> <span class="n">weasyprint</span>
+</pre></div>
+</div>
+</section>
+<section id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Link to this heading">┬Â</a></h3>
+<p>To use WeasyPrint on Windows, the easiest way is to use the <a class="reference external" href="https://github.com/Kozea/WeasyPrint/releases">executable</a> of
+the latest release.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>WeasyPrint is regularly marked as malware by different antivirus companies.
+See <a class="reference external" href="https://github.com/Kozea/WeasyPrint/issues/2081">#2081</a> or <a class="reference external" href="https://github.com/Kozea/WeasyPrint/issues/2092">#2092</a> to get more information on this topic. DonÔÇÖt
+hesitate to report the false positive detection to your antivirus company in
+order to improve malware detection for future versions.</p>
+</div>
+<p>If you want to use WeasyPrint as a Python library, youÔÇÖll have to follow a few
+extra steps. Please read this chapter carefully.</p>
+<p>The first step is to install the latest version of Python from the <a class="reference external" href="https://apps.microsoft.com/store/search/python">Microsoft
+Store</a>.</p>
+<p>When Python is installed, you have to install Pango and its dependencies. The
+easiest way to install these libraries is to use MSYS2. Here are the steps you
+have to follow:</p>
+<ul class="simple">
+<li><p>Install <a class="reference external" href="https://www.msys2.org/#installation">MSYS2</a> keeping the default options.</p></li>
+<li><p>After installation, in MSYS2ÔÇÖs shell, execute <code class="docutils literal notranslate"><span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">mingw-w64-x86_64-pango</span></code>.</p></li>
+<li><p>Close MSYS2ÔÇÖs shell.</p></li>
+</ul>
+<p>You can then launch a Windows command prompt by clicking on the Start menu,
+typing <code class="docutils literal notranslate"><span class="pre">cmd</span></code> and clicking the ÔÇ£Command PromptÔÇØ icon. Install WeasyPrint in a
+<a class="reference external" href="https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/">virtual environment</a> using <a class="reference external" href="https://pip.pypa.io/">pip</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">venv</span>
+<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">activate</span><span class="o">.</span><span class="n">bat</span>
+<span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">weasyprint</span>
+<span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">weasyprint</span> <span class="o">--</span><span class="n">info</span>
+</pre></div>
+</div>
+</section>
+<section id="other-solutions">
+<h3>Other Solutions<a class="headerlink" href="#other-solutions" title="Link to this heading">┬Â</a></h3>
+<p>Other solutions are available to install WeasyPrint. These solutions are not
+tested but they are known to work for some use cases on specific platforms.</p>
+<section id="macports">
+<h4>Macports<a class="headerlink" href="#macports" title="Link to this heading">┬Â</a></h4>
+<p>On macOS, you can install WeasyPrintÔÇÖs dependencies with <a class="reference external" href="https://www.macports.org/">Macports</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">port</span> <span class="n">install</span> <span class="n">py</span><span class="o">-</span><span class="n">pip</span> <span class="n">pango</span> <span class="n">libffi</span>
+</pre></div>
+</div>
+<p>You can then install WeasyPrint in a <a class="reference external" href="https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/">virtual environment</a> using <a class="reference external" href="https://pip.pypa.io/">pip</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">venv</span> <span class="n">venv</span>
+<span class="n">source</span> <span class="n">venv</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">weasyprint</span>
+<span class="n">weasyprint</span> <span class="o">--</span><span class="n">info</span>
+</pre></div>
+</div>
+</section>
+<section id="conda">
+<h4>Conda<a class="headerlink" href="#conda" title="Link to this heading">┬Â</a></h4>
+<p>On Linux and macOS, WeasyPrint is available on <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/">Conda</a>, with <a class="reference external" href="https://anaconda.org/conda-forge/weasyprint">a WeasyPrint
+package on Conda Forge</a>.</p>
+</section>
+<section id="wsl">
+<h4>WSL<a class="headerlink" href="#wsl" title="Link to this heading">┬Â</a></h4>
+<p>On Windows, you can also use <a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/">WSL</a> and install WeasyPrint the same way it has to
+be installed on Linux.</p>
+</section>
+<section id="net-wrapper">
+<h4>.NET Wrapper<a class="headerlink" href="#net-wrapper" title="Link to this heading">┬Â</a></h4>
+<p>On Windows, Bader Albarrak maintains <a class="reference external" href="https://github.com/balbarak/WeasyPrint-netcore">a .NET wrapper</a>.</p>
+</section>
+<section id="aws">
+<h4>AWS<a class="headerlink" href="#aws" title="Link to this heading">┬Â</a></h4>
+<p>Kotify maintains <a class="reference external" href="https://github.com/kotify/cloud-print-utils">an AWS Lambda layer</a>, see issue <a class="reference external" href="https://github.com/Kozea/WeasyPrint/issues/1003">#1003</a> for more
+information.</p>
+</section>
+<section id="docker">
+<h4>Docker<a class="headerlink" href="#docker" title="Link to this heading">┬Â</a></h4>
+<p>Luca Vercelli maintains <a class="reference external" href="https://github.com/luca-vercelli/WeasyPrint-docker-images/">Docker images</a>.</p>
+</section>
+</section>
+<section id="troubleshooting">
+<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">┬Â</a></h3>
+<p>Most of the installation problems have already been met, and some <a class="reference external" href="https://github.com/Kozea/WeasyPrint/issues">issues on
+GitHub</a> could help you to solve them. If the solutions here donÔÇÖt solve your
+problem, please open a new issue (and donÔÇÖt add comments to closed issues).</p>
+<section id="missing-library">
+<h4>Missing Library<a class="headerlink" href="#missing-library" title="Link to this heading">┬Â</a></h4>
+<p>On Windows or macOS, most of the problems come from unreachable libraries. If
+you get an error like <code class="docutils literal notranslate"><span class="pre">cannot</span> <span class="pre">load</span> <span class="pre">library</span> <span class="pre">'xxx':</span> <span class="pre">error</span> <span class="pre">xxx</span></code>, it means that
+WeasyPrint canÔÇÖt find this library.</p>
+<p>On Windows, you can set the <code class="docutils literal notranslate"><span class="pre">WEASYPRINT_DLL_DIRECTORIES</span></code> environment variable
+to list the folders where the DLL files can be found. For example, in
+<code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">WEASYPRINT_DLL_DIRECTORIES</span><span class="o">=</span><span class="n">C</span><span class="p">:</span>\<span class="n">msys64</span>\<span class="n">mingw64</span>\<span class="nb">bin</span>
+</pre></div>
+</div>
+<p>On macOS, you can set the <code class="docutils literal notranslate"><span class="pre">DYLD_FALLBACK_LIBRARY_PATH</span></code> environment variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export DYLD_FALLBACK_LIBRARY_PATH=/opt/homebrew/lib:$DYLD_FALLBACK_LIBRARY_PATH
+</pre></div>
+</div>
+<p>Of course, check that the folders you set actually contain the <code class="docutils literal notranslate"><span class="pre">.dll</span></code> (on
+Windows) or <code class="docutils literal notranslate"><span class="pre">.dylib</span></code> (on macOS) files WeasyPrint requires.</p>
+</section>
+<section id="missing-fonts">
+<h4>Missing Fonts<a class="headerlink" href="#missing-fonts" title="Link to this heading">┬Â</a></h4>
+<p>If no character is drawn in the generated PDF, or if you get squares instead of
+letters, you have to install fonts and make them available to WeasyPrint.
+Following the standard way to install fonts on your system should be enough.
+You can also use <code class="docutils literal notranslate"><span class="pre">&#64;font-face</span></code> rules to explicitly reference fonts using URLs.</p>
+</section>
+</section>
+</section>
+<section id="command-line">
+<h2>Command-Line<a class="headerlink" href="#command-line" title="Link to this heading">┬Â</a></h2>
+<p>Using the WeasyPrint command line interface can be as simple as this:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>weasyprint<span class="w"> </span>https://weasyprint.org<span class="w"> </span>/tmp/weasyprint-website.pdf
+</pre></div>
+</div>
+<p>You may see warnings on the standard error output about unsupported CSS
+properties. See <a class="reference internal" href="api_reference.html#command-line-api"><span class="std std-ref">Command-line API</span></a> for the details of all available
+options.</p>
+<p>In particular, the <code class="docutils literal notranslate"><span class="pre">-s</span></code> option can add a filename for a
+<a class="reference internal" href="api_reference.html#stylesheet-origins"><span class="std std-ref">user stylesheet</span></a>. For quick experimentation
+however, you may not want to create a file. In bash or zsh, you can
+use the shellÔÇÖs redirection instead:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>weasyprint<span class="w"> </span>https://weasyprint.org<span class="w"> </span>/tmp/weasyprint-website.pdf<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-s<span class="w"> </span>&lt;<span class="o">(</span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;body { font-family: serif !important }&#39;</span><span class="o">)</span>
+</pre></div>
+</div>
+<p>If you have many documents to convert you may prefer using the Python API
+in long-lived processes to avoid paying the start-up costs every time.</p>
+</section>
+<section id="python-library">
+<h2>Python Library<a class="headerlink" href="#python-library" title="Link to this heading">┬Â</a></h2>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Using WeasyPrint with untrusted HTML or untrusted CSS may lead to various
+<a class="reference internal" href="#security"><span class="std std-ref">security problems</span></a>.</p>
+</div>
+<section id="quickstart">
+<h3>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading">┬Â</a></h3>
+<p>The Python version of the above example goes like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">weasyprint</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;https://weasyprint.org/&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write_pdf</span><span class="p">(</span><span class="s1">&#39;/tmp/weasyprint-website.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>ÔÇª or with the inline stylesheet:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">weasyprint</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">CSS</span>
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;https://weasyprint.org/&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write_pdf</span><span class="p">(</span><span class="s1">&#39;/tmp/weasyprint-website.pdf&#39;</span><span class="p">,</span>
+    <span class="n">stylesheets</span><span class="o">=</span><span class="p">[</span><span class="n">CSS</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s1">&#39;body { font-family: serif !important }&#39;</span><span class="p">)])</span>
+</pre></div>
+</div>
+</section>
+<section id="instantiating-html-and-css-objects">
+<h3>Instantiating HTML and CSS Objects<a class="headerlink" href="#instantiating-html-and-css-objects" title="Link to this heading">┬Â</a></h3>
+<p>If you have a file name, an absolute URL or a readable <a class="reference external" href="https://docs.python.org/3/glossary.html#term-file-object" title="(in Python v3.13)"><span class="xref std std-term">file object</span></a>,
+you can just pass it to <a class="reference internal" href="api_reference.html#weasyprint.HTML" title="weasyprint.HTML"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTML</span></code></a> or <a class="reference internal" href="api_reference.html#weasyprint.CSS" title="weasyprint.CSS"><code class="xref py py-class docutils literal notranslate"><span class="pre">CSS</span></code></a> to create an instance.
+Alternatively, use a named argument so that no guessing is involved:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">weasyprint</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;../foo.html&#39;</span><span class="p">)</span>  <span class="c1"># Same as ÔÇª</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;../foo.html&#39;</span><span class="p">)</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;https://weasyprint.org&#39;</span><span class="p">)</span>  <span class="c1"># Same as ÔÇª</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://weasyprint.org&#39;</span><span class="p">)</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">)</span>  <span class="c1"># Same as ÔÇª</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">file_obj</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you have a byte string or Unicode string already in memory you can also pass
+that, although the argument must be named:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">weasyprint</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">CSS</span>
+
+<span class="c1"># HTML(&#39;&lt;h1&gt;foo&#39;) would be filename</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    &lt;h1&gt;The title&lt;/h1&gt;</span>
+<span class="s1">    &lt;p&gt;Content goes here</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span>
+<span class="n">CSS</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s1">&#39;@page { size: A3; margin: 1cm }&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you have <code class="docutils literal notranslate"><span class="pre">&#64;font-face</span></code> rules in your CSS, you have to create a
+<code class="docutils literal notranslate"><span class="pre">FontConfiguration</span></code> object:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">weasyprint</span> <span class="kn">import</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">CSS</span>
+<span class="kn">from</span> <span class="nn">weasyprint.text.fonts</span> <span class="kn">import</span> <span class="n">FontConfiguration</span>
+
+<span class="n">font_config</span> <span class="o">=</span> <span class="n">FontConfiguration</span><span class="p">()</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">HTML</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s1">&#39;&lt;h1&gt;The title&lt;/h1&gt;&#39;</span><span class="p">)</span>
+<span class="n">css</span> <span class="o">=</span> <span class="n">CSS</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    @font-face {</span>
+<span class="s1">        font-family: Gentium;</span>
+<span class="s1">        src: url(https://example.com/fonts/Gentium.otf);</span>
+<span class="s1">    }</span>
+<span class="s1">    h1 { font-family: Gentium }&#39;&#39;&#39;</span><span class="p">,</span> <span class="n">font_config</span><span class="o">=</span><span class="n">font_config</span><span class="p">)</span>
+<span class="n">html</span><span class="o">.</span><span class="n">write_pdf</span><span class="p">(</span>
+    <span class="s1">&#39;/tmp/example.pdf&#39;</span><span class="p">,</span> <span class="n">stylesheets</span><span class="o">=</span><span class="p">[</span><span class="n">css</span><span class="p">],</span>
+    <span class="n">font_config</span><span class="o">=</span><span class="n">font_config</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="rendering-to-a-single-file">
+<h3>Rendering to a Single File<a class="headerlink" href="#rendering-to-a-single-file" title="Link to this heading">┬Â</a></h3>
+<p>Once you have a <a class="reference internal" href="api_reference.html#weasyprint.HTML" title="weasyprint.HTML"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTML</span></code></a> object, call its <a class="reference internal" href="api_reference.html#weasyprint.HTML.write_pdf" title="weasyprint.HTML.write_pdf"><code class="xref py py-meth docutils literal notranslate"><span class="pre">HTML.write_pdf()</span></code></a> method to
+get the rendered document in a single PDF file.</p>
+<p>Without arguments, this method returns a byte string in memory. If you pass a
+file name or a writable <a class="reference external" href="https://docs.python.org/3/glossary.html#term-file-object" title="(in Python v3.13)"><span class="xref std std-term">file object</span></a>, they will write there directly
+instead. (<strong>Warning</strong>: with a filename, these methods will overwrite existing
+files silently.)</p>
+</section>
+<section id="rendering-individual-pages">
+<h3>Rendering Individual Pages<a class="headerlink" href="#rendering-individual-pages" title="Link to this heading">┬Â</a></h3>
+<p>If you want more than a single PDF, the <a class="reference internal" href="api_reference.html#weasyprint.HTML.render" title="weasyprint.HTML.render"><code class="xref py py-meth docutils literal notranslate"><span class="pre">HTML.render()</span></code></a> method gives you a
+<a class="reference internal" href="api_reference.html#weasyprint.document.Document" title="weasyprint.document.Document"><code class="xref py py-class docutils literal notranslate"><span class="pre">document.Document</span></code></a> object with access to individual
+<a class="reference internal" href="api_reference.html#weasyprint.document.Page" title="weasyprint.document.Page"><code class="xref py py-class docutils literal notranslate"><span class="pre">document.Page</span></code></a> objects. Thus you can get the number of pages, their
+size<a class="footnote-reference brackets" href="#id10" id="id9" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>, the details of hyperlinks and bookmarks, etc. Documents also have a
+<a class="reference internal" href="api_reference.html#weasyprint.document.Document.write_pdf" title="weasyprint.document.Document.write_pdf"><code class="xref py py-meth docutils literal notranslate"><span class="pre">document.Document.write_pdf()</span></code></a> method, and you can get a subset of the
+pages with <a class="reference internal" href="api_reference.html#weasyprint.document.Document.copy" title="weasyprint.document.Document.copy"><code class="xref py py-meth docutils literal notranslate"><span class="pre">document.Document.copy()</span></code></a>.</p>
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id10" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">1</a><span class="fn-bracket">]</span></span>
+<p>Pages in the same document do not always have the same size.</p>
+</aside>
+</aside>
+<p>See the <a class="reference internal" href="api_reference.html#python-api"><span class="std std-ref">Python API</span></a> for details. A few random examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write odd and even pages separately:</span>
+<span class="c1">#   Lists count from 0 but page numbers usually from 1</span>
+<span class="c1">#   [::2] is a slice of even list indexes but odd-numbered pages.</span>
+<span class="n">document</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">pages</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">write_pdf</span><span class="p">(</span><span class="s1">&#39;odd_pages.pdf&#39;</span><span class="p">)</span>
+<span class="n">document</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">pages</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">write_pdf</span><span class="p">(</span><span class="s1">&#39;even_pages.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the outline of the document.</span>
+<span class="c1"># Output on https://www.w3.org/TR/CSS21/intro.html</span>
+<span class="c1">#     1. Introduction to CSS┬á2.1 (page 2)</span>
+<span class="c1">#       1. A brief CSS┬á2.1 tutorial for HTML (page 2)</span>
+<span class="c1">#       2. A brief CSS┬á2.1 tutorial for XML (page 5)</span>
+<span class="c1">#       3. The CSS┬á2.1 processing model (page 6)</span>
+<span class="c1">#         1. The canvas (page 7)</span>
+<span class="c1">#         2. CSS┬á2.1 addressing model (page 7)</span>
+<span class="c1">#       4. CSS design principles (page 8)</span>
+<span class="k">def</span> <span class="nf">print_outline</span><span class="p">(</span><span class="n">bookmarks</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">bookmark</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bookmarks</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">page</span> <span class="o">=</span> <span class="n">bookmark</span><span class="o">.</span><span class="n">destination</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s%d</span><span class="s1">. </span><span class="si">%s</span><span class="s1"> (page </span><span class="si">%d</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="n">indent</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">bookmark</span><span class="o">.</span><span class="n">label</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s1">&#39;0123456789. &#39;</span><span class="p">),</span> <span class="n">page</span><span class="p">))</span>
+        <span class="n">print_outline</span><span class="p">(</span><span class="n">bookmark</span><span class="o">.</span><span class="n">children</span><span class="p">,</span> <span class="n">indent</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">print_outline</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">make_bookmark_tree</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+<section id="url-fetchers">
+<h3>URL Fetchers<a class="headerlink" href="#url-fetchers" title="Link to this heading">┬Â</a></h3>
+<p>WeasyPrint goes through a <em>URL fetcher</em> to fetch external resources such as
+images or CSS stylesheets. The default fetcher can natively open file and
+HTTP URLs, but the HTTP client does not support advanced features like cookies
+or authentication. This can be worked-around by passing a custom
+<code class="docutils literal notranslate"><span class="pre">url_fetcher</span></code> callable to the <a class="reference internal" href="api_reference.html#weasyprint.HTML" title="weasyprint.HTML"><code class="xref py py-class docutils literal notranslate"><span class="pre">HTML</span></code></a> or <a class="reference internal" href="api_reference.html#weasyprint.CSS" title="weasyprint.CSS"><code class="xref py py-class docutils literal notranslate"><span class="pre">CSS</span></code></a> classes.
+It must have the same signature as <a class="reference internal" href="api_reference.html#weasyprint.default_url_fetcher" title="weasyprint.default_url_fetcher"><code class="xref py py-func docutils literal notranslate"><span class="pre">default_url_fetcher()</span></code></a>.</p>
+<p>Custom fetchers can choose to handle some URLs and defer others
+to the default fetcher:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">weasyprint</span> <span class="kn">import</span> <span class="n">default_url_fetcher</span><span class="p">,</span> <span class="n">HTML</span>
+
+<span class="k">def</span> <span class="nf">my_fetcher</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">url</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;graph:&#39;</span><span class="p">):</span>
+        <span class="n">graph_data</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">url</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">))</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="n">generate_graph</span><span class="p">(</span><span class="n">graph_data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;string&#39;</span><span class="p">:</span> <span class="n">string</span><span class="p">,</span> <span class="s1">&#39;mime_type&#39;</span><span class="p">:</span> <span class="s1">&#39;image/png&#39;</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">default_url_fetcher</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="n">source</span> <span class="o">=</span> <span class="s1">&#39;&lt;img src=&quot;graph:42,10.3,87&quot;&gt;&#39;</span>
+<span class="n">HTML</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="n">source</span><span class="p">,</span> <span class="n">url_fetcher</span><span class="o">=</span><span class="n">my_fetcher</span><span class="p">)</span><span class="o">.</span><span class="n">write_pdf</span><span class="p">(</span><span class="s1">&#39;out.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://github.com/Kozea/Flask-WeasyPrint">Flask-WeasyPrint</a> for <a class="reference external" href="https://flask.pocoo.org/">Flask</a> and <a class="reference external" href="https://github.com/fdemmer/django-weasyprint">Django-Weasyprint</a> for <a class="reference external" href="https://www.djangoproject.com/">Django</a> both make
+use of a custom URL fetcher to integrate WeasyPrint and use the filesystem
+instead of a network call for static and media files.</p>
+<p>A custom fetcher should be returning a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a> with</p>
+<ul class="simple">
+<li><p>One of <code class="docutils literal notranslate"><span class="pre">string</span></code> (a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.13)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">bytestring</span></code></a>) or <code class="docutils literal notranslate"><span class="pre">file_obj</span></code> (a
+<a class="reference external" href="https://docs.python.org/3/glossary.html#term-file-object" title="(in Python v3.13)"><span class="xref std std-term">file object</span></a>).</p></li>
+<li><p>Optionally: <code class="docutils literal notranslate"><span class="pre">mime_type</span></code>, a MIME type extracted e.g. from a <em>Content-Type</em>
+header. If not provided, the type is guessed from the file extension in the
+URL.</p></li>
+<li><p>Optionally: <code class="docutils literal notranslate"><span class="pre">encoding</span></code>, a character encoding extracted e.g. from a
+<em>charset</em> parameter in a <em>Content-Type</em> header</p></li>
+<li><p>Optionally: <code class="docutils literal notranslate"><span class="pre">redirected_url</span></code>, the actual URL of the resource if there were
+e.g. HTTP redirects.</p></li>
+<li><p>Optionally: <code class="docutils literal notranslate"><span class="pre">filename</span></code>, the filename of the resource. Usually derived from
+the <em>filename</em> parameter in a <em>Content-Disposition</em> header</p></li>
+</ul>
+<p>If a <code class="docutils literal notranslate"><span class="pre">file_obj</span></code> is given, the resource will be closed automatically by
+the function internally used by WeasyPrint to retrieve data.</p>
+</section>
+</section>
+<section id="security">
+<h2>Security<a class="headerlink" href="#security" title="Link to this heading">┬Â</a></h2>
+<p><em>This section has been added thanks to the very useful reports and advice from
+Raz Becker.</em></p>
+<p>When used with untrusted HTML or untrusted CSS, WeasyPrint can meet security
+problems. You will need extra configuration in your Python application to avoid
+high memory use, endless renderings or local files leaks.</p>
+<p>As for any service dealing with untrusted data, you should at least follow
+basic security rules with WeasyPrint: donÔÇÖt launch the service as root, launch
+it as a user with limited access to filesystem, network and memory. Using a
+container can also be a simple way to limit the possibilities given to an
+attacker in case of security breach.</p>
+<section id="long-renderings">
+<h3>Long Renderings<a class="headerlink" href="#long-renderings" title="Link to this heading">┬Â</a></h3>
+<p>WeasyPrint is pretty slow and can take a long time to render long documents or
+specially crafted HTML pages.</p>
+<p>When WeasyPrint used on a server with HTML or CSS files from untrusted sources,
+this problem can lead to very long time renderings, with processes with high
+CPU and memory use. Even small documents may lead to really long rendering
+times, restricting HTML document size is not enough.</p>
+<p>If you use WeasyPrint on a server with HTML or CSS samples coming from
+untrusted users, you should:</p>
+<ul class="simple">
+<li><p>limit rendering time and memory use of your process, for example using
+<code class="docutils literal notranslate"><span class="pre">evil-reload-on-as</span></code> and <code class="docutils literal notranslate"><span class="pre">harakiri</span></code> options if you use uWSGI,</p></li>
+<li><p>limit memory use at the OS level, for example with <code class="docutils literal notranslate"><span class="pre">ulimit</span></code> on Linux,</p></li>
+<li><p>automatically kill the process when it uses too much memory or when the
+rendering time is too high, by regularly launching a script to do so if no
+better option is available,</p></li>
+<li><p>truncate and sanitize HTML and CSS input to avoid very long documents and
+access to external URLs.</p></li>
+</ul>
+</section>
+<section id="infinite-requests">
+<h3>Infinite Requests<a class="headerlink" href="#infinite-requests" title="Link to this heading">┬Â</a></h3>
+<p>WeasyPrint can reach files on the network, for example using <code class="docutils literal notranslate"><span class="pre">https://</span></code>
+URIs. For various reasons, HTTP requests may take a long time and lead to
+problems similar to <a class="reference internal" href="#long-renderings"><span class="std std-ref">Long Renderings</span></a>.</p>
+<p>WeasyPrint has a default timeout of 10 seconds for HTTP, HTTPS and FTP
+resources. This timeout has no effect with other protocols, including access to
+<code class="docutils literal notranslate"><span class="pre">file://</span></code> URIs.</p>
+<p>If you use WeasyPrint on a server with HTML or CSS samples coming from
+untrusted users, or need to reach network resources, you should:</p>
+<ul class="simple">
+<li><p>use a custom <a class="reference internal" href="#url-fetchers"><span class="std std-ref">URL fetcher</span></a>,</p></li>
+<li><p>follow solutions listed in <a class="reference internal" href="#long-renderings"><span class="std std-ref">Long Renderings</span></a>.</p></li>
+</ul>
+</section>
+<section id="infinite-loops">
+<h3>Infinite Loops<a class="headerlink" href="#infinite-loops" title="Link to this heading">┬Â</a></h3>
+<p>WeasyPrint has been hit by a large number of bugs, including infinite
+loops. Specially crafted HTML and CSS files can quite easily lead to infinite
+loops and infinite rendering times.</p>
+<p>If you use WeasyPrint on a server with HTML or CSS samples coming from
+untrusted users, you should:</p>
+<ul class="simple">
+<li><p>follow solutions listed in <a class="reference internal" href="#long-renderings"><span class="std std-ref">Long Renderings</span></a>.</p></li>
+</ul>
+</section>
+<section id="huge-values">
+<h3>Huge Values<a class="headerlink" href="#huge-values" title="Link to this heading">┬Â</a></h3>
+<p>WeasyPrint doesnÔÇÖt restrict integer and float values used in CSS. Using huge
+values for some properties (page sizes, font sizes, block sizes) can lead to
+various problems, including infinite rendering times, huge PDF files, high
+memory use and crashes.</p>
+<p>This problem is really hard to avoid. Even parsing CSS stylesheets and
+searching for huge values is not enough, as it is quite easy to trick CSS
+pre-processors using relative units (<code class="docutils literal notranslate"><span class="pre">em</span></code> and <code class="docutils literal notranslate"><span class="pre">%</span></code> for example).</p>
+<p>If you use WeasyPrint on a server with HTML or CSS samples coming from
+untrusted users, you should:</p>
+<ul class="simple">
+<li><p>follow solutions listed in <a class="reference internal" href="#long-renderings"><span class="std std-ref">Long Renderings</span></a>.</p></li>
+</ul>
+</section>
+<section id="access-to-local-files">
+<h3>Access to Local Files<a class="headerlink" href="#access-to-local-files" title="Link to this heading">┬Â</a></h3>
+<p>As any web renderer, WeasyPrint can reach files on the local filesystem using
+<code class="docutils literal notranslate"><span class="pre">file://</span></code> URIs. These files can be shown in <code class="docutils literal notranslate"><span class="pre">img</span></code> or <code class="docutils literal notranslate"><span class="pre">embed</span></code> tags for
+example.</p>
+<p>When WeasyPrint used on a server with HTML or CSS files from untrusted sources,
+this feature may be used to know if files are present on the server filesystem,
+and to embed them in generated documents.</p>
+<p>Unix-like systems also have special local files with infinite size, like
+<code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code>. Referencing these files in HTML or CSS files obviously lead
+to infinite time renderings.</p>
+<p>If you use WeasyPrint on a server with HTML or CSS samples coming from
+untrusted users, you should:</p>
+<ul class="simple">
+<li><p>restrict your process access to trusted files using sandboxing solutions,</p></li>
+<li><p>use a custom <a class="reference internal" href="#url-fetchers"><span class="std std-ref">URL fetcher</span></a> that doesnÔÇÖt allow <code class="docutils literal notranslate"><span class="pre">file://</span></code>
+URLs or filters access depending on given paths.</p></li>
+<li><p>follow solutions listed in <a class="reference internal" href="#long-renderings"><span class="std std-ref">Long Renderings</span></a>.</p></li>
+</ul>
+</section>
+<section id="system-information-leaks">
+<h3>System Information Leaks<a class="headerlink" href="#system-information-leaks" title="Link to this heading">┬Â</a></h3>
+<p>WeasyPrint relies on many libraries that can leak hardware and software
+information. Even when this information looks useless, it can be used by
+attackers to exploit other security breaches.</p>
+<p>Leaks can include (but are not restricted to):</p>
+<ul class="simple">
+<li><p>locally installed fonts (using <code class="docutils literal notranslate"><span class="pre">font-family</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;font-face</span></code>),</p></li>
+<li><p>network configuration (IPv4 and IPv6 support, IP addressing, firewall
+configuration, using <code class="docutils literal notranslate"><span class="pre">https://</span></code> URIs and tracking time used to render
+documents),</p></li>
+<li><p>Python, Pango and other libraries versions (implementation details
+lead to different renderings).</p></li>
+</ul>
+</section>
+<section id="svg-images">
+<h3>SVG Images<a class="headerlink" href="#svg-images" title="Link to this heading">┬Â</a></h3>
+<p>Rendering SVG images more or less suffers from the same problems as the ones
+listed here for WeasyPrint.</p>
+<p>Security advices apply for untrusted SVG files as they apply for untrusted HTML
+and CSS documents.</p>
+<p>Note that WeasyPrintÔÇÖs URL fetcher is used to render SVG files.</p>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="common_use_cases.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Common Use Cases</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="index.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; Simon Sapin and contributors
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">First Steps</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#linux">Linux</a><ul>
+<li><a class="reference internal" href="#alpine-3-17">Alpine ÔëÑ 3.17</a></li>
+<li><a class="reference internal" href="#id1">Archlinux</a></li>
+<li><a class="reference internal" href="#debian-11">Debian ÔëÑ 11</a></li>
+<li><a class="reference internal" href="#fedora-39">Fedora ÔëÑ 39</a></li>
+<li><a class="reference internal" href="#ubuntu-20-04">Ubuntu ÔëÑ 20.04</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#macos">macOS</a></li>
+<li><a class="reference internal" href="#windows">Windows</a></li>
+<li><a class="reference internal" href="#other-solutions">Other Solutions</a><ul>
+<li><a class="reference internal" href="#macports">Macports</a></li>
+<li><a class="reference internal" href="#conda">Conda</a></li>
+<li><a class="reference internal" href="#wsl">WSL</a></li>
+<li><a class="reference internal" href="#net-wrapper">.NET Wrapper</a></li>
+<li><a class="reference internal" href="#aws">AWS</a></li>
+<li><a class="reference internal" href="#docker">Docker</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#missing-library">Missing Library</a></li>
+<li><a class="reference internal" href="#missing-fonts">Missing Fonts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#command-line">Command-Line</a></li>
+<li><a class="reference internal" href="#python-library">Python Library</a><ul>
+<li><a class="reference internal" href="#quickstart">Quickstart</a></li>
+<li><a class="reference internal" href="#instantiating-html-and-css-objects">Instantiating HTML and CSS Objects</a></li>
+<li><a class="reference internal" href="#rendering-to-a-single-file">Rendering to a Single File</a></li>
+<li><a class="reference internal" href="#rendering-individual-pages">Rendering Individual Pages</a></li>
+<li><a class="reference internal" href="#url-fetchers">URL Fetchers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#security">Security</a><ul>
+<li><a class="reference internal" href="#long-renderings">Long Renderings</a></li>
+<li><a class="reference internal" href="#infinite-requests">Infinite Requests</a></li>
+<li><a class="reference internal" href="#infinite-loops">Infinite Loops</a></li>
+<li><a class="reference internal" href="#huge-values">Huge Values</a></li>
+<li><a class="reference internal" href="#access-to-local-files">Access to Local Files</a></li>
+<li><a class="reference internal" href="#system-information-leaks">System Information Leaks</a></li>
+<li><a class="reference internal" href="#svg-images">SVG Images</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=05925bf6"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/../../versions_list.js?v=67e7dd2d"></script>
+    </body>
+</html>

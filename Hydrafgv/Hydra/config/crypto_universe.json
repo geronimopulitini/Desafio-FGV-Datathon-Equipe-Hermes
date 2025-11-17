@@ -1,0 +1,455 @@
+{
+  "updated_at": "2025-11-15T16:05:03.874769+00:00",
+  "universe": [
+    {
+      "ticker": "BTC-USD",
+      "symbol": "BTC",
+      "name": "Bitcoin",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "BTCUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "ETH-USD",
+      "symbol": "ETH",
+      "name": "Ethereum",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "ETHUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "XRP-USD",
+      "symbol": "XRP",
+      "name": "XRP",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "XRPUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "USDT-USD",
+      "symbol": "USDT",
+      "name": "Tether",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "USDTUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "BNB-USD",
+      "symbol": "BNB",
+      "name": "Binance Coin",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "BNBUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "SOL-USD",
+      "symbol": "SOL",
+      "name": "Solana",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "SOLUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "USDC-USD",
+      "symbol": "USDC",
+      "name": "USD Coin",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "USDCUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "HYPE-USD",
+      "symbol": "HYPE",
+      "name": "Hyperliquid",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "HYPEUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "TRX-USD",
+      "symbol": "TRX",
+      "name": "TRON",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "TRXUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "STETH-USD",
+      "symbol": "STETH",
+      "name": "Staked Ether",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "STETHUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "DOGE-USD",
+      "symbol": "DOGE",
+      "name": "Dogecoin",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "DOGEUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "ADA-USD",
+      "symbol": "ADA",
+      "name": "Cardano",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "ADAUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "SUI-USD",
+      "symbol": "SUI",
+      "name": "Sui",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "SUIUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "WBT-USD",
+      "symbol": "WBT",
+      "name": "WhiteBIT Token",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "WBTUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "WLFI-USD",
+      "symbol": "WLFI",
+      "name": "World Liberty Financial",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "WLFIUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "LINK-USD",
+      "symbol": "LINK",
+      "name": "Chainlink",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "LINKUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "XLM-USD",
+      "symbol": "XLM",
+      "name": "Stellar",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "XLMUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "M-USD",
+      "symbol": "M",
+      "name": "MemeCore",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "MUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "WBTC-USD",
+      "symbol": "WBTC",
+      "name": "Wrapped Bitcoin",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "WBTCUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "CRO-USD",
+      "symbol": "CRO",
+      "name": "Cronos",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "CROUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "WBETH-USD",
+      "symbol": "WBETH",
+      "name": "Wrapped Beacon ETH",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "WBETHUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "ZEC-USD",
+      "symbol": "ZEC",
+      "name": "ZCash",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "ZECUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "BCH-USD",
+      "symbol": "BCH",
+      "name": "Bitcoin Cash",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "BCHUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "TON-USD",
+      "symbol": "TON",
+      "name": "Toncoin",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "TONUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "ASTER-USD",
+      "symbol": "ASTER",
+      "name": "Aster",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "ASTERUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "WEETH-USD",
+      "symbol": "WEETH",
+      "name": "Wrapped eETH",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "WEETHUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "LEO-USD",
+      "symbol": "LEO",
+      "name": "LEO Token",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "LEOUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "XMR-USD",
+      "symbol": "XMR",
+      "name": "Monero",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "XMRUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "USDE-USD",
+      "symbol": "USDE",
+      "name": "Ethena USDe",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "USDEUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "LTC-USD",
+      "symbol": "LTC",
+      "name": "Litecoin",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "LTCUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "HBAR-USD",
+      "symbol": "HBAR",
+      "name": "Hedera Hashgraph",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "HBARUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "MANTLE-USD",
+      "symbol": "MANTLE",
+      "name": "Mantle",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "MANTLEUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "UNI-USD",
+      "symbol": "UNI",
+      "name": "Uniswap Protocol Token",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "UNIUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "TRUMP-USD",
+      "symbol": "TRUMP",
+      "name": "OFFICIAL TRUMP",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "TRUMPUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "AVAX-USD",
+      "symbol": "AVAX",
+      "name": "Avalanche",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "AVAXUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "WLD-USD",
+      "symbol": "WLD",
+      "name": "Worldcoin",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "WLDUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "ONDO-USD",
+      "symbol": "ONDO",
+      "name": "Ondo",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "ONDOUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "XT-USD",
+      "symbol": "XT",
+      "name": "XT.com Token",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "XTUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "SHIB-USD",
+      "symbol": "SHIB",
+      "name": "Shiba Inu",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "SHIBUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "DOT-USD",
+      "symbol": "DOT",
+      "name": "Polkadot",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "DOTUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "KULA-USD",
+      "symbol": "KULA",
+      "name": "Kula",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "KULAUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "DAI-USD",
+      "symbol": "DAI",
+      "name": "Dai",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "DAIUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "ENA-USD",
+      "symbol": "ENA",
+      "name": "Ethena",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "ENAUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "CC-USD",
+      "symbol": "CC",
+      "name": "Canton Coin",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "CCUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "VINCI-USD",
+      "symbol": "VINCI",
+      "name": "VINCI",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "VINCIUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "PUMP-USD",
+      "symbol": "PUMP",
+      "name": "Pump.fun",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "PUMPUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "BGB-USD",
+      "symbol": "BGB",
+      "name": "Bitget token",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "BGBUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "TAO-USD",
+      "symbol": "TAO",
+      "name": "Bittensor",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "TAOUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "APT-USD",
+      "symbol": "APT",
+      "name": "Aptos",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "APTUSDT",
+      "quote": "usd"
+    },
+    {
+      "ticker": "PYUSD-USD",
+      "symbol": "PYUSD",
+      "name": "PayPal USD",
+      "category": "crypto",
+      "coingecko_id": null,
+      "binance_symbol": "PYUSDUSDT",
+      "quote": "usd"
+    }
+  ]
+}

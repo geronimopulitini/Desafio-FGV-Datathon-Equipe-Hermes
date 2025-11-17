@@ -1,0 +1,77 @@
+﻿HOW TO RUN (Windows / PowerShell)
+
+Pré‑requisitos
+- Python 3.10+ no PATH
+- PowerShell
+- Internet para instalar dependências e (opcional) coletar dados reais
+
+Estrutura (onde executar)
+- Orquestrador (pipeline completo): Hydra\Hermes
+
+Modo padrão (IA escolhe as ações)
+- Rode tudo com seleção automática de ações por IA e gere 1 relatório consolidado (N=20):
+  python hydra_scraper\cli.py run-all-report --period recent --n 20 --out_dir outputs --report_out Hermes\artifacts\ai_report --debug
+- Saídas:
+  - Seleção salva em outputs\selected_assets.json
+  - Relatório final em Hermes\artifacts\ai_report\report.pdf (e report.html)
+
+- CLI Hydra v2 (coleta/RAG/sumários): Hydra\ (raiz do repo)
+
+1) Preparar ambiente (Hermes)
+- Abra PowerShell na pasta: Hydra\Hermes
+- Crie e ative venv:
+  python -m venv .venv
+  . .\.venv\Scripts\Activate.ps1
+- Instale dependências e registre pacotes locais:
+  pip install -r requirements.txt
+  pip install -e .
+
+2) Configurar variáveis (.env)
+- Hermes: copie Hermes\.env.sample para Hermes\.env e preencha o que tiver (opcional, mas recomendado):
+  GOOGLE_API_KEY=...
+  CRYPTOCOMPARE_API_KEY=...
+  REDDIT_CLIENT_ID=... / REDDIT_CLIENT_SECRET=... / REDDIT_USER_AGENT=...
+  SEC_USER_AGENT=SeuNome/SeuEmail
+- Raiz (Hydra\): use .env com chaves (veja .env.example já com placeholders). Sem chaves, o pipeline usa fallbacks e avisa nos logs.
+
+3) Rodar Orquestrador (sintético, offline)
+- Na pasta Hydra\Hermes (venv ativo):
+  python orchestrator\run_pipeline.py --ticker PETR4.SA --engine synthetic --outdir artifacts
+- Verifique saídas em Hermes\artifacts\YYYY-MM-DD\:
+  report.pdf, johnson_daily.csv, forecast.json, portfolio.json (soma de pesos ~ 1.0)
+
+4) Rodar Orquestrador com Hydra (dados reais)
+- Opcional: forçar apenas fontes online (sem CSV/cache):
+  $env:HYDRA_IGNORE_CSV="1"; $env:HYDRA_IGNORE_CACHE="1"
+- Executar:
+  python orchestrator\run_pipeline.py --ticker PETR4.SA --engine synthetic --data-source hydra --qual-source hydra --outdir artifacts
+- Full com forecast pronto:
+  python orchestrator\run_pipeline.py --ticker PETR4.SA --engine full --forecast-path C:\caminho\forecast.json --data-source hydra --qual-source hydra --outdir artifacts
+
+5) Rodar CLI Hydra v2 (coleta + RAG + sumário)
+- Vá para a raiz Hydra\ (onde estão hydra_scraper e webscrapping_hydra)
+- Execute pipeline completo (recent):
+  python hydra_scraper\cli.py run-all --period recent --out_dir outputs --debug
+- Saídas esperadas (Hydra\outputs):
+  daily_kpis_recent.csv, daily_kpis_meta.json
+  news_corpus_recent.jsonl, reddit_corpus_recent.jsonl
+  views\index_<TICKER>_recent.faiss (ou backend "none" sem Gemini)
+  qualitative_scores.json
+  logs\qa_* (relatórios de qualidade)
+- Integração MegaForecast a partir do CSV:
+  python hydra_scraper\cli.py megaforecast-prepare --daily_csv outputs\daily_kpis_recent.csv --out_dir artifacts\prep
+
+6) Testes (opcional)
+- Na pasta Hydra\Hermes (venv ativo):
+  pytest -q
+
+Notas e fallbacks
+- Sem GOOGLE_API_KEY: RAG/seleção/sumários usam heurísticas e seguem.
+- Sem FMP/Reddit: ESG neutro e Reddit via RSS. Pipeline segue.
+- FAISS ausente: índices RAG em memória/"none". QA pode avisar, mas não quebra.
+- Defina USER_AGENT/SEC_USER_AGENT com contato real para a SEC.
+
+Dicas rápidas
+- Atualizar dependências: pip install -r requirements.txt
+- Reexecutar sintético: python orchestrator\run_pipeline.py --ticker PETR4.SA --engine synthetic --outdir artifacts
+- Limpar e refazer outputs: apague Hydra\outputs\* e rode o run-all novamente.
